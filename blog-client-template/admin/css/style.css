@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(149, 149, 212);
+}
+#container{
+    max-width: 650px;
+    margin: 30px auto;
+}
+a {
+    text-decoration: none;
+}
+.nav{
+    display: flex;
+    flex-direction: row-reverse;
+}
+form{
+    background-color: white;
+}
+thead,tbody,th,td{
+    border: 1px solid;
+    padding: 10px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+hr{
+    margin-block-start:0px ;
+}
