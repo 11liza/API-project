@@ -7,33 +7,51 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
         return response.json();
     })
     .then((data) => {
-        console.log(data)
         let HTMLContent = "";
         for (let post of data) {
-            console.log(post)
             // format Tags field
             let tagContent = "";
-            if (post.tags){
+            if (post.tags) {
                 for (let tag of post.tags) {
-                tagContent += tag + ', ';
+                    tagContent += tag + ', ';
                 }
             }
-            tagContent = tagContent.slice(0, tagContent.length - 1);
+            tagContent = tagContent.slice(0, tagContent.length - 2);
+            
             // format Date field
-
             const dateValue = new Date(post.date);
             HTMLContent +=
-            `<tr>
+                `<tr>
             <td>${post.title}</td>
             <td>${post.author}</td>
             <td>${tagContent}</td>
             <td>${dateValue.getFullYear()}-${dateValue.getMonth()}-${dateValue.getDay()} ${dateValue.getHours()}:${dateValue.getMinutes()}</td>
             <td>
-                <a href="#">Update</a> |
-                <a href="#">Delete</a>
+                <a href="update-post.html?id=${post._id}">Update</a> |
+                <a href="#" data-id=${post._id}>Delete</a>
             </td>
             </tr>`
         }
-        console.timeLog(document.getElementById('table').lastElementChild)
         document.getElementById('table').lastElementChild.innerHTML = HTMLContent;
+
+        //Delete post
+        let form = document.getElementById('form');
+        let delLinks = form.querySelectorAll("a[data-id]");
+        for (let link of delLinks) {
+            link.addEventListener('click',async(e)=>{
+                console.log(link.parentNode.parentNode)
+                let id = e.target.dataset.id;
+                try{
+                    await fetch('https://blog-api-assignment.up.railway.app/posts/'+id,{
+                        method: 'DELETE'
+                    })
+                    link.parentNode.parentNode.remove();
+                }catch(error){
+                    console.log(error);
+                }
+            })
+        }
+    })
+    .catch((error) => {
+        console.log(error);
     })
