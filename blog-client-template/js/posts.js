@@ -17,7 +17,7 @@ async function fetchAllBlogs() {
                     <p>${blog.content.slice(0, 100)} <br></p>
                     
                     <div>
-                        <a href="post.html?id=${blog._id}">Read more</a> |
+                        <a href="post.html?id=${blog._id}">Read more</a>
                     </div>
                   
                 </li>
