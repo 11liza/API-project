@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(248, 248, 209);
+    margin: 100px;
+    align-items: center;
+}
+
+.container {
+    display: block;
+    font-size: 18px;
+    width: 600px;
+    margin: 200px auto 0;
+}
