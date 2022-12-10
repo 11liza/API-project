@@ -10,3 +10,6 @@ body {
     width: 600px;
     margin: 200px auto 0;
 }
+a{
+    text-decoration: none;
+}
