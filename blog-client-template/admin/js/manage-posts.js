@@ -51,20 +51,28 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
                 }
             })
         }
+
+        //pagination
+        pagination(data)
     })
     .catch((error) => {
         console.log(error);
     })
 
-function pagination(numberOfPages) {
+function pagination(data) {
 
+    const numberOfPosts = data.length;
     const nextButton = document.getElementById("next-button");
     const prevButton = document.getElementById("prev-button");
-    const pagintionNumbers = document.getElementById('page-numbers');
+    const paginationNumbers = document.getElementById('pagination-numbers');
+    const body = document.querySelector('tbody');
+    const rowList = body.querySelectorAll('tr');
+    console.log(rowList);
+    console.log(numberOfPosts)
 
 
     const paginationLimit = 10;
-    const pageCount = Math.ceil(numberOfPages / paginationLimit);
+    const pageCount = Math.ceil(numberOfPosts / paginationLimit);
     let currentPage = 1;
 
     const disableButton = (button) => {
@@ -84,32 +92,84 @@ function pagination(numberOfPages) {
             enableButton(prevButton)
         }
 
-        if(currentPage == pageCount){
+        if (currentPage == pageCount) {
             disableButton(nextButton)
-        }else {
+        } else {
             enableButton(nextButton);
         }
     }
 
-    const handleActivePageNumber = ()=> {
-        document.querySelectorAll(".pagination-number").forEach((button)=>{
+    const handleActivePageNumber = () => {
+        console.log('handle')
+        document.querySelectorAll(".pagination-number").forEach((button) => {
             button.classList.remove('active');
             const pageIndex = Number(button.getAttribute("page-index"));
-            if(pageIndex == currentPage){
+            console.log(pageIndex);
+            if (pageIndex == currentPage) {
                 button.classList.add('active');
             }
         })
     }
 
-    const appendPageNumber = (index) =>{
+    const appendPageNumber = (index) => {
         const pageNumber = document.createElement('button');
         pageNumber.classList.add('.pagination-number');
         pageNumber.innerHTML = index;
-        pageNumber.setAttribute('page-index',index);
-        pageNumber.setAttribute('arial-label',"Page " + index);
-        pagintionNumbers.appendChild('pageNumber');
+        pageNumber.setAttribute('page-index', index);
+        pageNumber.setAttribute('arial-label', "Page " + index);
+        paginationNumbers.appendChild(pageNumber);
     }
 
+    const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+            appendPageNumber(i);
+        }
+    }
+
+    const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+
+        handleActivePageNumber();
+        handlePageButtonsStatus();
+
+        
+        const startPoint = (pageNum - 1) * paginationLimit;
+        const endPoint = pageNum * paginationLimit;
+
+        for (let i = 0; i < rowList.length; i++) {
+            console.log(rowList[i]);
+            rowList[i].setAttribute("hidden","true");
+            // show all posts of current page
+            if (i >= startPoint && i < endPoint) {
+                rowList[i].removeAttribute("hidden");
+            }
+        }
+    }
+    getPaginationNumbers();
+    setCurrentPage(1);
+    // window.onload = function(){
+    //     console.log('co khog')
+    //     getPaginationNumbers();
+    //     setCurrentPage(1);
+    // }
+    prevButton.addEventListener("click", () => {
+        console.log('iiii')
+        setCurrentPage(currentPage - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        setCurrentPage(currentPage + 1);
+        console.log("aaaa")
+    });
+
+    const availablePages =  paginationNumbers.childNodes;
+   for(let button of availablePages ){
+    const pageIndex = Number(button.getAttribute('page-index'));
+    console.log(pageIndex)
+    button.addEventListener("click", ()=>{
+        setCurrentPage(pageIndex);
+    })
+   }
 }
 
 
