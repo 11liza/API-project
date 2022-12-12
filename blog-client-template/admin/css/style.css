@@ -10,11 +10,13 @@ body{
 }
 a {
     text-decoration: none;
+    margin-bottom: 2px;
 }
 .nav{
     display: flex;
     flex-direction: row-reverse;
 }
+
 form{
     background-color: white;
     border-radius: 2px 2px;
@@ -57,4 +59,9 @@ input, button{
     text-decoration: none;
     text-align: center;
     color: black;
+}
+.pagination-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
