@@ -13,9 +13,9 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
             console.log(post)
             // format Tags field
             let tagContent = "";
-            if (post.tags){
+            if (post.tags) {
                 for (let tag of post.tags) {
-                tagContent += tag + ', ';
+                    tagContent += tag + ', ';
                 }
             }
             tagContent = tagContent.slice(0, tagContent.length - 1);
@@ -23,7 +23,7 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
 
             const dateValue = new Date(post.date);
             HTMLContent +=
-            `<tr>
+                `<tr>
             <td>${post.title}</td>
             <td>${post.author}</td>
             <td>${tagContent}</td>

@@ -1,13 +1,25 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>This page is required for the VG grade</h1>
 
+<body>
+    <div id="container">
+        <h1>Update blog</h1>
+
+        <form id="update-blog-form">
+            <label for="">Content</label>
+            <textarea name="content" id="content-textarea" cols="30" rows="10"></textarea>
+            <select name="tags" id="tag-select" multiple></select>
+            <input type="submit" value="Update">
+            <a href="index.html">Back</a>
+        </form>
+    </div>
     <script src="js/update-post.js"></script>
 </body>
+
 </html>
