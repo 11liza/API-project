@@ -8,39 +8,48 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
     })
     .then((data) => {
         let HTMLContent = "";
-        for (let post of data) {
-            // format Date field
-            const dateValue = new Date(post.date);
+        const tbody = document.querySelector('tbody');
 
-            HTMLContent +=
-                `<tr>
-            <td>${post.title}</td>
-            <td>${post.author}</td>
-            <td>${post.tags}</td>
-            <td>${dateValue.getFullYear()}-${dateValue.getMonth()}-${dateValue.getDay()} ${dateValue.getHours()}:${dateValue.getMinutes()}</td>
-            <td>
-                <a href="update-post.html?id=${post._id}">Update</a> |
-                <a href="#" data-id=${post._id}>Delete</a>
-            </td>
-            </tr>`
-        }
-        document.getElementById('table').lastElementChild.innerHTML = HTMLContent;
+        if (!data) {
+            const h3 = document.createElement('h3');
+            h3.innerHTML = 'No data';
+            tbody.appendChild(h3);
+        } else {
+            tbody.innerHTML = "";
+            for (let post of data) {
+                // format Date field
+                const dateValue = new Date(post.date);
 
-        //Delete post
-        let form = document.getElementById('form');
-        let delLinks = form.querySelectorAll("a[data-id]");
-        for (let link of delLinks) {
-            link.addEventListener('click',async(e)=>{
-                let id = e.target.dataset.id;
-                try{
-                    await fetch('https://blog-api-assignment.up.railway.app/posts/'+id,{
-                        method: 'DELETE'
-                    })
-                    link.parentNode.parentNode.remove();
-                }catch(error){
-                    console.log(error);
-                }
-            })
+                HTMLContent +=
+                    `<tr>
+                <td>${post.title}</td>
+                <td>${post.author}</td>
+                <td>${post.tags}</td>
+                <td>${dateValue.getFullYear()}-${dateValue.getMonth()}-${dateValue.getDay()} ${dateValue.getHours()}:${dateValue.getMinutes()}</td>
+                <td>
+                    <a href="update-post.html?id=${post._id}">Update</a> |
+                    <a href="#" data-id=${post._id}>Delete</a>
+                </td>
+                </tr>`
+            }
+            document.getElementById('table').lastElementChild.innerHTML = HTMLContent;
+
+            //Delete post
+            let form = document.getElementById('form');
+            let delLinks = form.querySelectorAll("a[data-id]");
+            for (let link of delLinks) {
+                link.addEventListener('click', async (e) => {
+                    let id = e.target.dataset.id;
+                    try {
+                        await fetch('https://blog-api-assignment.up.railway.app/posts/' + id, {
+                            method: 'DELETE'
+                        })
+                        link.parentNode.parentNode.remove();
+                    } catch (error) {
+                        console.log(error);
+                    }
+                })
+            }
         }
     })
     .catch((error) => {
