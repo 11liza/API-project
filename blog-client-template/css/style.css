@@ -12,7 +12,11 @@ body {
     display: block;
 }
 
-
+#blog-list a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
 
 
 
