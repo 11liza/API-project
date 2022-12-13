@@ -3,6 +3,7 @@
 }
 body{
     background-color: rgb(149, 149, 212);
+    max-height:100vh ;
 }
 #container{
     max-width: 650px;
