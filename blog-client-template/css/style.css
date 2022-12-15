@@ -1,15 +1,49 @@
-* {
-    box-sizing: border-box;
+body {
+    background-color: whitesmoke;
+    margin: 20px;
 }
 
-body {
-    background-color: rgb(221, 196, 179);
+.wrapper {
+    max-width: 700px;
+    padding: 28px 0 30px;
+    margin: 50px auto;
+    background: rgb(239, 178, 187);
+    border-style: groove;
 }
 
 #container {
     max-width: 650px;
     margin: 30px auto;
     display: block;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+ul {
+    list-style-type: none;
+    position: relative;
+
+}
+
+h1 {
+    color: rgb(16, 16, 16);
+    font-size: 30px;
+    padding: 10px;
+    text-align: left;
+}
+
+hr {
+    margin-block-start: 10px;
+    color: black;
 }
 
 

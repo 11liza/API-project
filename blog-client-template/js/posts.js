@@ -4,7 +4,7 @@ async function fetchAllBlogs() {
     try {
         const response = await fetch('https://blog-api-assignment.up.railway.app/posts');
         let blogs = await response.json();
-        
+
         let blogsHTML = '';
         for (let blog of blogs) {
             let blogDate = new Date(blog.date)
@@ -26,4 +26,7 @@ async function fetchAllBlogs() {
     } catch (error) {
         console.log(error);
     }
+}
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
