@@ -5,7 +5,7 @@ body{
     background-color: rgb(149, 149, 212);
 }
 #container{
-    max-width: 650px;
+    max-width: 750px;
     margin: 30px auto;
 }
 a {
@@ -19,11 +19,16 @@ form{
     background-color: white;
     border-radius: 2px 2px;
 }
-thead,tbody,th,td{
-    border: 1px solid;
+table,th,td{
+    border: 1px solid black;
     padding: 10px;
 }
+td{
+    word-wrap: break-word;
+    width: 100px;
+}
 table{
+    table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
 }
