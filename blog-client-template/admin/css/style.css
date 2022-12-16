@@ -1,60 +1,76 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: rgb(149, 149, 212);
 }
-#container{
-    max-width: 750px;
+
+#container {
+    max-width: 650px;
     margin: 30px auto;
 }
+
 a {
     text-decoration: none;
 }
-.nav{
+
+.nav {
     display: flex;
     flex-direction: row-reverse;
 }
-form{
+
+form {
     background-color: white;
     border-radius: 2px 2px;
 }
-table,th,td{
-    border: 1px solid black;
+
+thead,
+tbody,
+th,
+td {
+    border: 1px solid;
     padding: 10px;
 }
 
-table{
+table {
+
     width: 100%;
     border-collapse: collapse;
 }
 
-hr{
-    margin-block-start:0px ;
+hr {
+    margin-block-start: 0px;
 }
 
 /* Update and Create post form */
-#container-post{
+#container-post {
     max-width: 550px;
     margin: 30px auto;
 }
-#post{
+
+#post {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
     padding: 15px;
 }
-input, textarea, select {
+
+input,
+textarea,
+select {
     display: block;
     width: 100%;
     border-radius: 3px 3px;
 }
 
-input, button{
+input,
+button {
     height: 25px;
     border: 0.5px solid;
 }
-#post a{
+
+#post a {
     text-decoration: none;
     text-align: center;
     color: black;

@@ -1,13 +1,17 @@
-* {
-    box-sizing: border-box;
+body {
+    background-color: whitesmoke;
+    margin: 20px;
 }
 
+.wrapper {
+    max-width: 700px;
+    padding: 28px 0 30px;
+    background: rgb(239, 178, 187);
+    border-style: groove;
 body {
-    background: rgb(244, 229, 242);
     color: rgb(40, 39, 39);
     width: 700px;
     margin: 100px auto;
-    padding: 10px;
     justify-content: center;
 }
 
@@ -27,8 +31,38 @@ nav {
 }
 }
 
-#blog-list a {
+a {
     text-decoration: none;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+ul {
+    list-style-type: none;
+    position: relative;
+
+}
+
+h1 {
+    color: rgb(16, 16, 16);
+    font-size: 30px;
+    padding: 10px;
+    text-align: left;
+}
+
+hr {
+    margin-block-start: 10px;
+    color: black;
+}
+
+
+
+#blog-list a {
     text-align: center;
     color: black;
 }
