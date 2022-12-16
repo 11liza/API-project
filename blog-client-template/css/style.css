@@ -3,13 +3,28 @@
 }
 
 body {
-    background-color: rgb(221, 196, 179);
+    background: rgb(244, 229, 242);
+    color: rgb(40, 39, 39);
+    width: 700px;
+    margin: 100px auto;
+    padding: 10px;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 #container {
     max-width: 650px;
     margin: 30px auto;
     display: block;
+    font-size: 18px;
+    max-width: 700px;
+    text-align: center;
+}
 }
 
 #blog-list a {

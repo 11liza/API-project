@@ -8,6 +8,7 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
     })
     .then((data) => {
         let HTMLContent = "";
+
         const tbody = document.querySelector('tbody');
 
         if (!data) {
@@ -42,6 +43,18 @@ fetch('https://blog-api-assignment.up.railway.app/posts')
             }
             document.getElementById('table').lastElementChild.innerHTML = HTMLContent;
 
+            const dateValue = new Date(post.date);
+            HTMLContent +=
+                `<tr>
+            <td>${post.title}</td>
+            <td>${post.author}</td>
+            <td>${tagContent}</td>
+            <td>${dateValue.getFullYear()}-${dateValue.getMonth()}-${dateValue.getDay()} ${dateValue.getHours()}:${dateValue.getMinutes()}</td>
+            <td>
+                <a href="#">Update</a> |
+                <a href="#">Delete</a>
+            </td>
+            </tr>`
             //Delete post
             let form = document.getElementById('form');
             let delLinks = form.querySelectorAll("a[data-id]");
