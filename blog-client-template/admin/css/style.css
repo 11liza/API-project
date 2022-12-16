@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: bisque;
 }
 
 #container {
@@ -18,9 +18,7 @@ a {
 #create-post{
     padding-bottom: 2px;
 }
-h2, nav a {
-    color: #e03b07;
-}
+
 .nav {
     display: flex;
     flex-direction: row-reverse;
@@ -43,6 +41,9 @@ table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
+}
+td{
+    word-break: break-word;
 }
 
 hr {
