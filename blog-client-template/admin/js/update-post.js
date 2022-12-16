@@ -58,29 +58,6 @@ window.onload = function () {
         }
     }
     console.log(document.getElementById('post'))
-    // document.getElementById('post').addEventListener('submit', async function (e) {
-    //     console.log('yes')
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     let formDataObject = serializeForm(form);
-    //     console.log(formDataObject)
-
-
-    //     try {
-    //         await fetch('https://blog-api-assignment.up.railway.app/posts/' + urlParams.get('id')), {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(formDataObject)
-    //         }
-
-    //         location.replace('index.html')
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // })
-
 }
 
 
