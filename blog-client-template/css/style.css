@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: rgb(244, 229, 242);
     color: rgb(40, 39, 39);
@@ -10,12 +14,56 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
+
 }
 
-.container {
+#container {
+    max-width: 650px;
+    margin: 30px auto;
     display: block;
     font-size: 18px;
     max-width: 700px;
-    margin: 100px auto 0;
     text-align: center;
 }
+}
+
+#blog-list a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+
+
+/* Update and Create post form */
+/* #container-post {
+    max-width: 550px;
+    margin: 30px auto;
+}
+
+#post {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    border-radius: 3px 3px;
+}
+
+input,
+button {
+    height: 25px;
+    border: 0.5px solid;
+}
+
+#blog-list a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+} */

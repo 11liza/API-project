@@ -1,6 +1,8 @@
+
+
 window.onload = function () {
 
-
+    const form = document.getElementById('post');
     console.log(location.search);
     let urlParams = new URLSearchParams(window.location.search)
     console.log(urlParams.get('id'));
@@ -14,31 +16,75 @@ window.onload = function () {
             console.log(blog);
             document.getElementById('content-textarea').value = blog.content;
             document.getElementById('tag-select').value = blog.tags;
+            //for fields with input type
+            const inputFields = document.querySelectorAll('input');
+            for (let field of inputFields) {
+                console.log(blog[field.id])
+                field.value = blog[field.id];
+            }
+            // for textarea field
+            const areafield = document.querySelector('textarea');
+            areafield.value = blog.content;
+
+            const tags = document.getElementById('tags');
+            console.log(blog.tags)
+
+            for (let tag of tags.childNodes) {
+                if (blog.tags.includes(tag.value)) {
+                    tag.selected = 'true';
+                }
+            }
+            //udpate data
+
+            document.getElementById('post').addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const form = e.target;
+                let formDataObject = serializeForm(form);
+                console.log(JSON.stringify(formDataObject))
+
+                try {
+                    await fetch('https://blog-api-assignment.up.railway.app/posts/' + urlParams.get('id'), {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formDataObject)
+                    })
+                    location.replace('index.html')
+                } catch (error) {
+                    console.log(error)
+                }
+            })
+
         } catch (error) {
             console.log(error);
         }
     }
 
-    document.getElementById('update-blog-form').addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const form = e.target;
-        let formDataObject = serializeForm(form);
+    console.log(document.getElementById('post'))
+    // document.getElementById('post').addEventListener('submit', async function (e) {
+    //     console.log('yes')
+    //     e.preventDefault();
+    //     const form = e.target;
+    //     let formDataObject = serializeForm(form);
+    //     console.log(formDataObject)
 
 
-        try {
-            await fetch('https://blog-api-assignment.up.railway.app/posts/' + urlParams.get('id')), {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formDataObject)
-            }
+    //     try {
+    //         await fetch('https://blog-api-assignment.up.railway.app/posts/' + urlParams.get('id')), {
+    //             method: 'PATCH',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(formDataObject)
+    //         }
 
-            location.replace('index.html')
-        } catch (error) {
-            console.log(error)
-        }
-    })
+    //         location.replace('index.html')
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // })
+
 
 }
 
