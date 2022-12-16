@@ -13,6 +13,7 @@ body {
 
 a {
     text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
 }
 #create-post{
     padding-bottom: 2px;
@@ -79,4 +80,10 @@ button {
     text-decoration: none;
     text-align: center;
     color: black;
+}
+#submit {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px 4px;
 }
