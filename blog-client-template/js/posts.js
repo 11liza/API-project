@@ -8,13 +8,19 @@ async function fetchAllBlogs() {
         let blogsHTML = '';
         for (let blog of blogs) {
             let blogDate = new Date(blog.date)
-
+            let tagContent = "";
+            if (blog.tags) {
+                for (let tag of blog.tags) {
+                    tagContent += tag + ', ';
+                }
+            }
+            tagContent = tagContent.slice(0, tagContent.length - 2);
             blogsHTML += `
                 <li class="list-group-item">
-                <p>Title: ${blog.title} </p>
-                    <p>Author: ${blog.author}  <span class="date">- ${blogDate.getFullYear()}-${blogDate.getMonth() + 1}-${blogDate.getDate()} at ${blogDate.getHours()}:${blogDate.getMinutes()}:${blogDate.getSeconds()}</span></p>
-                    <p>Tags: ${blog.tags}</p>
-                    <p>${blog.content.slice(0, 100)}<span>
+                <p>Title: ${capitalizeFirstLetter(blog.title)} </p>
+                    <p>Author: ${capitalizeFirstLetter(blog.author)}  <span class="date">- ${blogDate.getFullYear()}-${blogDate.getMonth() + 1}-${blogDate.getDate()} at ${blogDate.getHours()}:${blogDate.getMinutes()}:${blogDate.getSeconds()}</span></p>
+                    <p>Tags: ${capitalizeFirstLetter(tagContent)}</p>
+                    <p>${capitalizeFirstLetter(blog.content.slice(0, 100))}<span>
                     <a href="post.html?id=${blog._id}">...read more</a></span>
                     </p>  
                 </li>
