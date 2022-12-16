@@ -24,12 +24,14 @@ window.onload = function () {
 
             const tags = document.getElementById('tags');
             console.log(blog.tags)
-
-            for (let tag of tags.childNodes) {
-                if (blog.tags.includes(tag.value)) {
-                    tag.selected = 'true';
+            if(blog.tags){
+                for (let tag of tags.childNodes) {
+                    if (blog.tags.includes(tag.value)) {
+                        tag.selected = 'true';
+                    }
                 }
             }
+            
             //udpate data
 
             document.getElementById('post').addEventListener('submit', async function (e) {
