@@ -6,29 +6,15 @@ body {
 .wrapper {
     max-width: 700px;
     padding: 28px 0 30px;
+    margin: 50px auto;
     background: rgb(239, 178, 187);
     border-style: groove;
-body {
-    color: rgb(40, 39, 39);
-    width: 700px;
-    margin: 100px auto;
-    justify-content: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-
 }
 
 #container {
     max-width: 650px;
     margin: 30px auto;
     display: block;
-    font-size: 18px;
-    max-width: 700px;
-    text-align: center;
-}
 }
 
 a {
@@ -59,45 +45,3 @@ hr {
     margin-block-start: 10px;
     color: black;
 }
-
-
-
-#blog-list a {
-    text-align: center;
-    color: black;
-}
-
-
-
-/* Update and Create post form */
-/* #container-post {
-    max-width: 550px;
-    margin: 30px auto;
-}
-
-#post {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 15px;
-}
-
-input,
-textarea,
-select {
-    display: block;
-    width: 100%;
-    border-radius: 3px 3px;
-}
-
-input,
-button {
-    height: 25px;
-    border: 0.5px solid;
-}
-
-#blog-list a {
-    text-decoration: none;
-    text-align: center;
-    color: black;
-} */
