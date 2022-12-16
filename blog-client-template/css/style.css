@@ -6,15 +6,29 @@ body {
 .wrapper {
     max-width: 700px;
     padding: 28px 0 30px;
-    margin: 50px auto;
     background: rgb(239, 178, 187);
     border-style: groove;
+body {
+    color: rgb(40, 39, 39);
+    width: 700px;
+    margin: 100px auto;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 #container {
     max-width: 650px;
     margin: 30px auto;
     display: block;
+    font-size: 18px;
+    max-width: 700px;
+    text-align: center;
+}
 }
 
 a {
@@ -47,6 +61,11 @@ hr {
 }
 
 
+
+#blog-list a {
+    text-align: center;
+    color: black;
+}
 
 
 

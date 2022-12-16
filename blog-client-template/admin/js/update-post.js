@@ -1,4 +1,5 @@
 
+
 window.onload = function () {
 
     const form = document.getElementById('post');
@@ -13,6 +14,8 @@ window.onload = function () {
             const response = await fetch('https://blog-api-assignment.up.railway.app/posts/' + urlParams.get('id'));
             let blog = await response.json();
             console.log(blog);
+            document.getElementById('content-textarea').value = blog.content;
+            document.getElementById('tag-select').value = blog.tags;
             //for fields with input type
             const inputFields = document.querySelectorAll('input');
             for (let field of inputFields) {
@@ -57,6 +60,7 @@ window.onload = function () {
             console.log(error);
         }
     }
+
     console.log(document.getElementById('post'))
     // document.getElementById('post').addEventListener('submit', async function (e) {
     //     console.log('yes')
@@ -80,6 +84,7 @@ window.onload = function () {
     //         console.log(error)
     //     }
     // })
+
 
 }
 
